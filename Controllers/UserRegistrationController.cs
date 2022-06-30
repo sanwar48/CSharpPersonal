@@ -1,4 +1,6 @@
-﻿using Learningproject.Models;
+﻿using AutoMapper;
+using Learningproject.DTOs;
+using Learningproject.Models;
 using Learningproject.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,14 +13,16 @@ namespace Learningproject.Controllers
     public class UserRegistrationController : ControllerBase
     {
         private readonly ISignupServices _signupServices;
+        private readonly IMapper _mapper;
 
-        public UserRegistrationController(ISignupServices signupServices)
+        public UserRegistrationController(ISignupServices signupServices, IMapper mapper)
         {
             this._signupServices = signupServices;
+            _mapper = mapper;
         }
         // GET: api/<UserRegistrationController>
         [HttpGet]
-        public async Task<List<User>> Get()
+        public async Task<List<UserReadDto>> Get()
         {
           return await _signupServices.GetAsync();
         }

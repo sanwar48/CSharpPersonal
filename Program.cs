@@ -20,6 +20,10 @@ new MongoClient(builder.Configuration.GetValue<string>("LearningprojectDatabaseS
 builder.Services.AddScoped<ISignupServices, SignupServices>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Registering auto mapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

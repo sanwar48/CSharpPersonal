@@ -44,3 +44,5 @@ F:\DotNetprojects\Learningproject\obj\Debug\net6.0\refint\Learningproject.dll
 F:\DotNetprojects\Learningproject\obj\Debug\net6.0\Learningproject.pdb
 F:\DotNetprojects\Learningproject\obj\Debug\net6.0\Learningproject.genruntimeconfig.cache
 F:\DotNetprojects\Learningproject\obj\Debug\net6.0\ref\Learningproject.dll
+F:\DotNetprojects\Learningproject\bin\Debug\net6.0\AutoMapper.dll
+F:\DotNetprojects\Learningproject\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

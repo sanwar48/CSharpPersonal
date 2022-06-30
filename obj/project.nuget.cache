@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "1p1FTS/D8F5ppO/rgp8iCej5SPt6ksVQtWRkQ9Caz6qoSfq+5qWsRS1OSNByRQVsqfFzPDKvlBwJCSnUWLbaOQ==",
+  "dgSpecHash": "s4GHvx7VlZIRXVWLRb7JQ7azOqN+amFqhraFclYOIXFI+BvVZqu2t9dutm7KLQx5t5JmeCGprewFBQeOvCyG5A==",
   "success": true,
   "projectFilePath": "F:\\DotNetprojects\\Learningproject\\Learningproject.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\MSI\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\MSI\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\MSI\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\MSI\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\MSI\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.6\\microsoft.entityframeworkcore.6.0.6.nupkg.sha512",
     "C:\\Users\\MSI\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
     "C:\\Users\\MSI\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.6\\microsoft.entityframeworkcore.analyzers.6.0.6.nupkg.sha512",

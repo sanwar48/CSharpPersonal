@@ -1,17 +1,21 @@
 ﻿using Learningproject.Models;
 using MongoDB.Driver;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using Learningproject.DTOs;
 
 namespace Learningproject.Services
 {
     public class SignupServices : ISignupServices
     {
         private readonly IMongoCollection<User> userCollectionName;
+        private readonly IMapper _mapper;
 
-        public SignupServices(ILearningprojectDatabaseSettings settings, IMongoClient mongoClient)
+        public SignupServices(ILearningprojectDatabaseSettings settings, IMongoClient mongoClient, IMapper mapper)
         {
             var database = mongoClient.GetDatabase(settings.DatabaseName);
             userCollectionName = database.GetCollection<User>(settings.UsercollectionName);
+            _mapper = mapper;
         }
         public async Task CreateAsync(User user)
         {
@@ -23,9 +27,12 @@ namespace Learningproject.Services
             userCollectionName.DeleteOneAsync(User => User.id == id);
         }
 
-        public async Task<List<User>> GetAsync()
+        public async Task<List<UserReadDto>> GetAsync()
         {
-           return await userCollectionName.Find(User=>true).ToListAsync();
+            var UserList =  await userCollectionName.Find(User=>true).ToListAsync();
+            var UserListDto = _mapper.Map<List<UserReadDto>>(UserList);
+
+            return UserListDto;
         }
 
         public async Task<User> GetAsync(string id)
