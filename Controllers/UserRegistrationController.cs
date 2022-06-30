@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Learningproject.DTOs;
+using Learningproject.Helpers;
 using Learningproject.Models;
 using Learningproject.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,15 @@ namespace Learningproject.Controllers
     {
         private readonly ISignupServices _signupServices;
         private readonly IMapper _mapper;
+        private readonly IUniqueEmailCheck _uniqueEmail;
+        private readonly IUniqueUserNameCheck _uniqueUserName;
 
-        public UserRegistrationController(ISignupServices signupServices, IMapper mapper)
+        public UserRegistrationController(ISignupServices signupServices, IMapper mapper, IUniqueEmailCheck uniqueEmail, IUniqueUserNameCheck uniqueUserName)
         {
             this._signupServices = signupServices;
             _mapper = mapper;
+            _uniqueEmail = uniqueEmail;
+            _uniqueUserName = uniqueUserName;
         }
         // GET: api/<UserRegistrationController>
         [HttpGet]
@@ -38,6 +43,15 @@ namespace Learningproject.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] User user)
         {
+            bool checkUsername = _uniqueUserName.CheckUserName(user.UserName);
+            bool checkEmail = _uniqueEmail.CheckUserEmail(user.Email);
+
+
+            if(checkUsername == false && checkEmail == false) return BadRequest("user name and Email already taken");
+            if(checkUsername==false && checkEmail==true) return BadRequest("user name already taken");
+            if(checkUsername == true && checkEmail == false) return BadRequest("user name already taken");
+
+
             await _signupServices.CreateAsync(user);
             return CreatedAtAction(nameof(Get), new { id = user.id }, user);
         }
