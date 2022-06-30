@@ -21,6 +21,8 @@ new MongoClient(builder.Configuration.GetValue<string>("LearningprojectDatabaseS
 builder.Services.AddScoped<ISignupServices, SignupServices>();
 builder.Services.AddScoped<IUniqueEmailCheck, UniqueEmailCheck>();
 builder.Services.AddScoped<IUniqueUserNameCheck, UniqueUserNameCheck>();
+builder.Services.AddScoped<IPasswordValidation, PasswordValidation>();
+builder.Services.AddScoped<IPasswordEncryption, PasswordEncryption>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
